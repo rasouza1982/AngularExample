@@ -4,7 +4,7 @@ using AngularExample.Domain.Interfaces.Repository;
 
 namespace AngularExample.Data.Repository.Repository
 {
-    public class DepartmentRepository : Repository<Department, AngularExampleContext>, IRepositoryDepartment 
+    public class DepartmentRepository : Repository<Department, AngularExampleContext>, IDepartmentRepository
     {
     }
 }

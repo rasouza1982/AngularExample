@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication1.Site1" %>
-
+<head>
     <title></title>
 
     <link href="Content/bootstrap.css" rel="stylesheet" type="text/css">

@@ -5,21 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AngularExample.Domain.Interfaces.Repository;
+using Ninject;
 
 namespace WebApplication1
 {
     public partial class Default : System.Web.UI.Page
     {
-        private IRepositoryEmployee _repository;
-
-        public Default()
-        {
-           // _repository = new RepositoryEmployee();
-        }
+        [Inject]
+        public IEmployeeRepository repository { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            repository.GetAll().FirstOrDefault();
         }
     }
 }
