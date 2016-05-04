@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularExample.Infra.Data",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularExample.Infra.Crosscutting.IoC", "AngularExample.Infra.Crosscutting.IoC\AngularExample.Infra.Crosscutting.IoC.csproj", "{30E037DB-CF4F-4CE8-BF92-37A0EB740E01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularExample.Services.WebApi", "AngularExample.Services.WebApi\AngularExample.Services.WebApi.csproj", "{52B4677E-F973-45A2-98BB-88D03AC40548}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{30E037DB-CF4F-4CE8-BF92-37A0EB740E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30E037DB-CF4F-4CE8-BF92-37A0EB740E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30E037DB-CF4F-4CE8-BF92-37A0EB740E01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B4677E-F973-45A2-98BB-88D03AC40548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B4677E-F973-45A2-98BB-88D03AC40548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B4677E-F973-45A2-98BB-88D03AC40548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B4677E-F973-45A2-98BB-88D03AC40548}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

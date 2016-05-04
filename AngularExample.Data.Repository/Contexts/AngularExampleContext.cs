@@ -1,11 +1,9 @@
 ﻿using AngularExample.Data.Repository.Mapping;
 using AngularExample.Domain;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using System.Text;
 
 namespace AngularExample.Data.Repository.Contexts
 {

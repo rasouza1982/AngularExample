@@ -15,6 +15,7 @@ namespace AngularExample.Domain
 
         public virtual int Id { get; set; }
         public virtual string Name { get; set; }
+        public virtual DateTime DataCadastro { get; set; }
         public virtual ICollection<Employee> Employees { get; set; }
     }
 }

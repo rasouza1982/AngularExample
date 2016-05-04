@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using AngularExample.Domain.Interfaces.Repository;
 using Ninject;
 
@@ -16,7 +12,8 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            repository.GetAll().FirstOrDefault();
+            //repository.GetAll().FirstOrDefault();
+            Response.Write(String.Format("{0}{1}{2}", "Foram econtrados ", repository.GetAll().Count(), " registros."));
         }
     }
 }

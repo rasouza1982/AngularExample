@@ -24,9 +24,8 @@ namespace AngularExample.Data.Repository.Repository
         
         public Repository()
         {
-            this.Context = _contextManager.GetContext();
+            Context = _contextManager.GetContext();
             DbSet = Context.Set<TEntity>();
-            //this._context = new AngularExampleContext();
         }
 
         public virtual void Add(TEntity obj)
