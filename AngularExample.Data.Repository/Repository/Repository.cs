@@ -9,14 +9,14 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace AngularExample.Data.Repository.Repository
 {
-    public class Repository<TEntity, TContext> : IRepository<TEntity> 
+    public class Repository<TEntity, TContext> : IRepository<TEntity>  
         where TEntity : class
         where TContext : IDbContext, new()
 
     {
 
-        private readonly ContextManager<TContext> _contextManager = 
-            ServiceLocator.Current.GetInstance<IContextManager<TContext>>() as ContextManager<TContext>;
+        private readonly ContextManager<TContext> _contextManager = ServiceLocator.Current.GetInstance<IContextManager<TContext>>() as ContextManager<TContext>;
+        private bool _disposed;
         
         protected IDbContext Context;
         protected IDbSet<TEntity> DbSet;
@@ -60,10 +60,23 @@ namespace AngularExample.Data.Repository.Repository
             return DbSet.Where(predicate);
         }
 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    Context.Dispose();
+                }
+            }
+            _disposed = true;
+        }
+
         public void Dispose()
         {
-            Context.Dispose();
+            Dispose(true); 
             GC.SuppressFinalize(this);
         }
+        
     }
 }

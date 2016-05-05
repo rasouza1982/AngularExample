@@ -14,6 +14,11 @@ namespace AngularExample.Data.Repository.Contexts
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
+
+            //recria a base inicial quando o dominio for alterado.
+            //Database.SetInitializer<AngularExampleContext>(new DropCreateDatabaseIfModelChanges<AngularExampleContext>());
+            //recria a base inicial sempre.
+            Database.SetInitializer<AngularExampleContext>(new DropCreateDatabaseAlways<AngularExampleContext>());
         }
 
         public IDbSet<Employee> Employees { get; set; }
@@ -38,9 +43,8 @@ namespace AngularExample.Data.Repository.Contexts
             //modelBuilder.Properties<string>()
             //    .Configure(p => p.HasMaxLength(100));
 
-
-            modelBuilder.Configurations.Add(new EmployeeMap());
             modelBuilder.Configurations.Add(new DepartmentMap());
+            modelBuilder.Configurations.Add(new EmployeeMap());           
 
             base.OnModelCreating(modelBuilder);
         }

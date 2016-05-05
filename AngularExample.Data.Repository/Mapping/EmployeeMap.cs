@@ -1,4 +1,5 @@
 ﻿using AngularExample.Domain;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace AngularExample.Data.Repository.Mapping
@@ -10,13 +11,19 @@ namespace AngularExample.Data.Repository.Mapping
             ToTable("Employee");
 
             HasKey(x => x.Id);
+            Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(x => x.Name).HasMaxLength(80).IsRequired();
+            Property(x => x.Name).HasMaxLength(100).IsRequired();
             Property(x => x.Matricula).IsRequired();
+
+            Property(x => x.DataCadastro).IsRequired();
+
             
             Property(x => x.DepartmentId).IsRequired();
 
-            HasRequired(x => x.Department);           
+            HasRequired(x => x.Department)
+                .WithMany(x => x.Employees)
+                .HasForeignKey(x => x.DepartmentId);
 
         }
     }

@@ -13,6 +13,7 @@ namespace AngularExample.Data.Repository.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 100),
+                        DataCadastro = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -23,6 +24,7 @@ namespace AngularExample.Data.Repository.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 80),
                         Matricula = c.Int(nullable: false),
+                        DataCadastro = c.DateTime(nullable: false),
                         DepartmentId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
