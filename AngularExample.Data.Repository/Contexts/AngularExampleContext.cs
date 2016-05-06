@@ -16,9 +16,9 @@ namespace AngularExample.Data.Repository.Contexts
             Configuration.LazyLoadingEnabled = false;
 
             //recria a base inicial quando o dominio for alterado.
-            //Database.SetInitializer<AngularExampleContext>(new DropCreateDatabaseIfModelChanges<AngularExampleContext>());
+            Database.SetInitializer<AngularExampleContext>(new DropCreateDatabaseIfModelChanges<AngularExampleContext>());
             //recria a base inicial sempre.
-            Database.SetInitializer<AngularExampleContext>(new DropCreateDatabaseAlways<AngularExampleContext>());
+            //Database.SetInitializer<AngularExampleContext>(new DropCreateDatabaseAlways<AngularExampleContext>());
         }
 
         public IDbSet<Employee> Employees { get; set; }

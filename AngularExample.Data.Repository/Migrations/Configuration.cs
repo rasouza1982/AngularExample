@@ -27,37 +27,24 @@ namespace AngularExample.Data.Repository.Migrations
 
             var departments = new List<Department>
             {
-                new Department() { Name = FacilitiesDepartment, DataCadastro = DateTime.Now },
-                new Department() { Name = HrDepartment, DataCadastro = DateTime.Now },
-                new Department() { Name = ItDepartment, DataCadastro = DateTime.Now }
+                new Department() {Name = FacilitiesDepartment, DataCadastro = DateTime.Now , Employees = new List<Employee>()},
+                new Department() {Name = HrDepartment, DataCadastro = DateTime.Now, Employees = new List<Employee>()},
+                new Department() {Name = ItDepartment, DataCadastro = DateTime.Now, Employees = new List<Employee>()}
             };
 
             departments.ForEach(s => context.Departments.AddOrUpdate(d => d.Name, s));
-            //context.SaveChanges();
+
             SaveChanges(context);
-
-            //new Employee() { Name = "Funcionario 1", Matricula = 1234, DepartmentId = 1, DataCadastro = DateTime.Now },
-            //new Employee() { Name = "Funcionario 2", Matricula = 4733, DepartmentId = 2, DataCadastro = DateTime.Now },
-            //new Employee() { Name = "Funcionario 3", Matricula = 3544, DepartmentId = 3, DataCadastro = DateTime.Now },
-            //new Employee() { Name = "Funcionario 4", Matricula = 8786, DepartmentId = 3, DataCadastro = DateTime.Now }
-
 
             var employees = new List<Employee>
             {
-                new Employee() { Name = "Funcionario 1", Matricula = 1, DepartmentId = 1, DataCadastro = DateTime.Now,  },
-                new Employee() { Name = "Funcionario 2", Matricula = 2, DepartmentId = 2, DataCadastro = DateTime.Now },
-                new Employee() { Name = "Funcionario 3", Matricula = 3, DepartmentId = 3, DataCadastro = DateTime.Now },
-                new Employee() { Name = "Funcionario 4", Matricula = 4, DepartmentId = 3, DataCadastro = DateTime.Now }
-
-                //new Employee() { Name = "Funcionario 1", Matricula = 1, DepartmentId = departments.Single(d => d.Name == FacilitiesDepartment).Id, DataCadastro = DateTime.Now },
-                //new Employee() { Name = "Funcionario 2", Matricula = 2, DepartmentId = departments.Single(d => d.Name == HrDepartment).Id, DataCadastro = DateTime.Now },
-                //new Employee() { Name = "Funcionario 3", Matricula = 3, DepartmentId = departments.Single(d => d.Name == ItDepartment).Id, DataCadastro = DateTime.Now },
-                //new Employee() { Name = "Funcionario 4", Matricula = 4, DepartmentId = departments.Single(d => d.Name == ItDepartment).Id, DataCadastro = DateTime.Now }
+                new Employee() {Name = "Funcionario 1", Matricula = 1, DepartmentId = departments.FirstOrDefault(x => x.Name == FacilitiesDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == FacilitiesDepartment)},
+                new Employee() {Name = "Funcionario 2", Matricula = 2, DepartmentId = departments.FirstOrDefault(x => x.Name == HrDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == HrDepartment) },
+                new Employee() {Name = "Funcionario 3", Matricula = 3, DepartmentId = departments.FirstOrDefault(x => x.Name == ItDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == ItDepartment) },
+                new Employee() {Name = "Funcionario 4", Matricula = 4, DepartmentId = departments.FirstOrDefault(x => x.Name == ItDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == ItDepartment) }
             };
 
-            employees.ForEach(s => context.Employees.AddOrUpdate(e => e.Name, s));
-
-            //context.SaveChanges();
+            employees.ForEach(s => context.Employees.AddOrUpdate(e => e.Matricula, s));
             SaveChanges(context);
 
             base.Seed(context);
@@ -97,10 +84,8 @@ namespace AngularExample.Data.Repository.Migrations
                     }
                 }
 
-                throw new DbEntityValidationException(
-                    "Entity Validation Failed - errors follow:\n" +
-                    sb.ToString(), ex
-                ); // Add the original exception as the innerException
+                // Add the original exception as the innerException
+                throw new DbEntityValidationException("Entity Validation Failed - errors follow:\n" + sb.ToString(), ex); 
             }
         }
 

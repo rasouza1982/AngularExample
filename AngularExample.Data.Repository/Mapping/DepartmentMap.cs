@@ -12,7 +12,7 @@ namespace AngularExample.Data.Repository.Mapping
 
             HasKey(x => x.Id);
 
-            Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            //Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.Name).HasMaxLength(100).IsRequired();
 
