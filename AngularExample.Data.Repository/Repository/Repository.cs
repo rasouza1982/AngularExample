@@ -6,6 +6,7 @@ using System.Linq;
 using AngularExample.Data.Repository.Interfaces;
 using AngularExample.Domain.Interfaces.Repository;
 using Microsoft.Practices.ServiceLocation;
+using System.Linq.Expressions;
 
 namespace AngularExample.Data.Repository.Repository
 {
@@ -28,34 +29,34 @@ namespace AngularExample.Data.Repository.Repository
             DbSet = Context.Set<TEntity>();
         }
 
-        public virtual void Add(TEntity obj)
+        public virtual void Adicionar(TEntity obj)
         {
             DbSet.Add(obj);
         }
 
-        public virtual void Remove(TEntity obj)
+        public virtual void Remover(TEntity obj)
         {
             DbSet.Remove(obj);
         }
 
-        public virtual void Update(TEntity obj)
+        public virtual void Atualizar(TEntity obj)
         {
             var entry = Context.Entry(obj);
             DbSet.Attach(obj);
             entry.State = EntityState.Modified;
         }
 
-        public virtual TEntity GetById(int id)
+        public virtual TEntity ObterPorId(int id)
         {
             return DbSet.Find(id);
         }
 
-        public virtual IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> ObterTodos()
         {
             return DbSet.ToList();
         }
 
-        public virtual IEnumerable<TEntity> Find(System.Linq.Expressions.Expression<Func<TEntity, bool>> predicate)
+        public virtual IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
         {
             return DbSet.Where(predicate);
         }

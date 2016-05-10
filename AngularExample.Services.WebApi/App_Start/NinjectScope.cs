@@ -21,17 +21,21 @@ namespace AngularExample.Services.WebApi.App_Start
 
         public object GetService(Type serviceType)
         {
-            IRequest request = ResolutionRoot.CreateRequest(serviceType, 
+            IRequest request = ResolutionRoot.CreateRequest(serviceType, null, new Parameter[0], true, true);
+            return ResolutionRoot.Resolve(request).SingleOrDefault();
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            throw new NotImplementedException();
+            IRequest request = ResolutionRoot.CreateRequest(serviceType, null, new Parameter[0], true, true);
+            return ResolutionRoot.Resolve(request).ToList();            
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            IDisposable disposable = (IDisposable)ResolutionRoot;
+            if (disposable != null) disposable.Dispose();
+            ResolutionRoot = null;
         }
     }
 }

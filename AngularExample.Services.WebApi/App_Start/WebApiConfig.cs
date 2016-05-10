@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AngularExample.Infra.Crosscutting.IoC;
+using AngularExample.Services.WebApi.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -19,6 +21,15 @@ namespace AngularExample.Services.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(new Container().GetModule());
+
+            var appXmlType =
+            config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+
         }
+
     }
 }

@@ -6,11 +6,11 @@ namespace AngularExample.Domain.Interfaces.Repository
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : class
     {
-        void Add(TEntity obj);
-        void Remove(TEntity obj);
-        void Update(TEntity obj);
-        TEntity GetById(int id);
-        IEnumerable<TEntity> GetAll();
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        void Adicionar(TEntity obj);
+        void Remover(TEntity obj);
+        void Atualizar(TEntity obj);
+        TEntity ObterPorId(int id);
+        IEnumerable<TEntity> ObterTodos();
+        IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate);
     }
 }
