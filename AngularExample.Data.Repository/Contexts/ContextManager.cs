@@ -1,8 +1,7 @@
-﻿using System.Net;
-using System.Web;
+﻿using System.Web;
 using AngularExample.Data.Repository.Interfaces;
 
-namespace AngularExample.Data.Repository.Contexts
+namespace AngularExample.Infra.Data.Contexts
 {
     public class ContextManager<TContext> : IContextManager<TContext> where TContext : IDbContext, new()
     {

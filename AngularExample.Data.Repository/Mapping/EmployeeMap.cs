@@ -1,5 +1,4 @@
 ﻿using AngularExample.Domain;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace AngularExample.Data.Repository.Mapping

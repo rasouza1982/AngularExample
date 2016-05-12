@@ -1,14 +1,16 @@
+using AngularExample.Infra.Data.Contexts;
+using AngularExample.Domain;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using System.Data.Entity.Validation;
+using System.Linq;
+using System.Text;
+
 namespace AngularExample.Data.Repository.Migrations
 {
-    using AngularExample.Data.Repository.Contexts;
-    using AngularExample.Domain;
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Data.Entity.Validation;
-    using System.Linq;
-    using System.Text;
+
 
     internal sealed class Configuration : DbMigrationsConfiguration<AngularExampleContext>
     {
@@ -20,16 +22,16 @@ namespace AngularExample.Data.Repository.Migrations
 
         protected override void Seed(AngularExampleContext context)
         {
-            string FacilitiesDepartment = "Facilities";
-            string HrDepartment = "Human Resources";
-            string ItDepartment = "IT";
+            const string facilitiesDepartment = "Facilities";
+            const string hrDepartment = "Human Resources";
+            const string itDepartment = "IT";
 
 
             var departments = new List<Department>
             {
-                new Department() {Name = FacilitiesDepartment, DataCadastro = DateTime.Now , Employees = new List<Employee>()},
-                new Department() {Name = HrDepartment, DataCadastro = DateTime.Now, Employees = new List<Employee>()},
-                new Department() {Name = ItDepartment, DataCadastro = DateTime.Now, Employees = new List<Employee>()}
+                new Department() {Name = facilitiesDepartment, DataCadastro = DateTime.Now , Employees = new List<Employee>()},
+                new Department() {Name = hrDepartment, DataCadastro = DateTime.Now, Employees = new List<Employee>()},
+                new Department() {Name = itDepartment, DataCadastro = DateTime.Now, Employees = new List<Employee>()}
             };
 
             departments.ForEach(s => context.Departments.AddOrUpdate(d => d.Name, s));
@@ -38,10 +40,10 @@ namespace AngularExample.Data.Repository.Migrations
 
             var employees = new List<Employee>
             {
-                new Employee() {Name = "Funcionario 1", Matricula = 1, DepartmentId = departments.FirstOrDefault(x => x.Name == FacilitiesDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == FacilitiesDepartment)},
-                new Employee() {Name = "Funcionario 2", Matricula = 2, DepartmentId = departments.FirstOrDefault(x => x.Name == HrDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == HrDepartment) },
-                new Employee() {Name = "Funcionario 3", Matricula = 3, DepartmentId = departments.FirstOrDefault(x => x.Name == ItDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == ItDepartment) },
-                new Employee() {Name = "Funcionario 4", Matricula = 4, DepartmentId = departments.FirstOrDefault(x => x.Name == ItDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == ItDepartment) }
+                new Employee() {Name = "Funcionario 1", Matricula = 1, DepartmentId = departments.FirstOrDefault(x => x.Name == facilitiesDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == facilitiesDepartment)},
+                new Employee() {Name = "Funcionario 2", Matricula = 2, DepartmentId = departments.FirstOrDefault(x => x.Name == hrDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == hrDepartment) },
+                new Employee() {Name = "Funcionario 3", Matricula = 3, DepartmentId = departments.FirstOrDefault(x => x.Name == itDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == itDepartment) },
+                new Employee() {Name = "Funcionario 4", Matricula = 4, DepartmentId = departments.FirstOrDefault(x => x.Name == itDepartment).Id, DataCadastro = DateTime.Now, Department = departments.FirstOrDefault(x => x.Name == itDepartment) }
             };
 
             employees.ForEach(s => context.Employees.AddOrUpdate(e => e.Matricula, s));

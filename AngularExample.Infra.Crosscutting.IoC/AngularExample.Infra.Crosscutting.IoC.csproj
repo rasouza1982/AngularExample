@@ -84,6 +84,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AngularExample.Application\AngularExample.Application.csproj">
+      <Project>{0E9FC5A4-1132-4A5C-B608-0AB6580A097E}</Project>
+      <Name>AngularExample.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AngularExample.Data.Repository\AngularExample.Infra.Data.csproj">
       <Project>{e5a4e398-88e2-4ed4-93b4-faad349d8aee}</Project>
       <Name>AngularExample.Infra.Data</Name>

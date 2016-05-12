@@ -1,4 +1,5 @@
 ﻿using System;
+using AngularExample.Application.AutoMapper;
 
 namespace WebApplication1
 {
@@ -7,7 +8,7 @@ namespace WebApplication1
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            AutoMapperConfig.RegisterMappings();
         }
 
         protected void Session_Start(object sender, EventArgs e)

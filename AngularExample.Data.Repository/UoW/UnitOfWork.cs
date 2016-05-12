@@ -1,9 +1,9 @@
 ﻿using System;
-using AngularExample.Data.Repository.Contexts;
 using AngularExample.Data.Repository.Interfaces;
+using AngularExample.Infra.Data.Contexts;
 using Microsoft.Practices.ServiceLocation;
 
-namespace AngularExample.Data.Repository.UoW
+namespace AngularExample.Infra.Data.UoW
 {
     public class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext : IDbContext, new()
     {

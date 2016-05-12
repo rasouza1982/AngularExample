@@ -1,12 +1,12 @@
-﻿using AngularExample.Data.Repository.Contexts;
-using AngularExample.Domain;
-using AngularExample.Domain.Interfaces.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using AngularExample.Domain;
+using AngularExample.Domain.Interfaces.Repository;
+using AngularExample.Infra.Data.Contexts;
 
-namespace AngularExample.Data.Repository.Repository
+namespace AngularExample.Infra.Data.Repository
 {
     public class EmployeeRepository: Repository<Employee, AngularExampleContext>, IEmployeeRepository
     {

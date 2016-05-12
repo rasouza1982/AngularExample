@@ -2,9 +2,6 @@
 using AngularExemple.Domain.Interfaces.Service;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AngularExemple.Domain.Service
 {
@@ -12,6 +9,7 @@ namespace AngularExemple.Domain.Service
     {
 
         private readonly IRepository<TEntity> _repository;
+        private bool _disposed;
 
         public Service(IRepository<TEntity> repository)
         {
@@ -43,10 +41,23 @@ namespace AngularExemple.Domain.Service
             return _repository.ObterTodos();
         }
 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _repository.Dispose();
+                }
+            }
+            _disposed = true;
+        }
+
         public void Dispose()
         {
-            _repository.Dispose();
+            Dispose(true);
             GC.SuppressFinalize(this);
-        }      
+        }
+                
     }
 }

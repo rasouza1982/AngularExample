@@ -7,8 +7,8 @@
     <ProjectGuid>{E5A4E398-88E2-4ED4-93B4-FAAD349D8AEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AngularExample.Data.Repository</RootNamespace>
-    <AssemblyName>AngularExample.Data.Repository</AssemblyName>
+    <RootNamespace>AngularExample.Infra.Data</RootNamespace>
+    <AssemblyName>AngularExample.Infra.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

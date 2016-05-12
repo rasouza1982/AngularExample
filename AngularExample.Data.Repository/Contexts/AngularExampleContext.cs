@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 
-namespace AngularExample.Data.Repository.Contexts
+namespace AngularExample.Infra.Data.Contexts
 {
     public class AngularExampleContext : BaseDbContext
     {
@@ -16,7 +16,7 @@ namespace AngularExample.Data.Repository.Contexts
             Configuration.LazyLoadingEnabled = false;
 
             //recria a base inicial quando o dominio for alterado.
-            Database.SetInitializer<AngularExampleContext>(new DropCreateDatabaseIfModelChanges<AngularExampleContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AngularExampleContext>());
             //recria a base inicial sempre.
             //Database.SetInitializer<AngularExampleContext>(new DropCreateDatabaseAlways<AngularExampleContext>());
         }

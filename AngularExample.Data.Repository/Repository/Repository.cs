@@ -1,14 +1,14 @@
-﻿using AngularExample.Data.Repository.Contexts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using AngularExample.Data.Repository.Interfaces;
 using AngularExample.Domain.Interfaces.Repository;
+using AngularExample.Infra.Data.Contexts;
 using Microsoft.Practices.ServiceLocation;
-using System.Linq.Expressions;
 
-namespace AngularExample.Data.Repository.Repository
+namespace AngularExample.Infra.Data.Repository
 {
     public class Repository<TEntity, TContext> : IRepository<TEntity>  
         where TEntity : class

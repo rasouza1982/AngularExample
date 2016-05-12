@@ -1,7 +1,5 @@
 ﻿using AngularExample.Infra.Crosscutting.IoC;
 using AngularExample.Services.WebApi.App_Start;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
